@@ -18,6 +18,7 @@ namespace RPSLS
             player2 = GetNewPlayer(player2);
             isPlayer1 = true;
             Console.WriteLine(GetResult(player1, player2));
+            Console.WriteLine(CheckForWin(player1.total, player2.total));
         }
 
         // Methods
@@ -25,9 +26,17 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to the classic game of Rock Paper Scissors Lizard Spock");
             Console.WriteLine("The rules are simple. You choose a result against your opponent and a result occurs.");
-            Console.WriteLine("Rock crushes Scissors, Scissors cuts Paper, Paper covers Rock,Rock crushes Lizard, " +
-                              "Lizard poisons Spock, Spock smashes Scissors, Scissors decapitates Lizard, " +
-                              "Lizard eats Paper, Paper disproves Spock, and Spock vaporizes Rock");
+            Console.ReadLine();
+            Console.WriteLine("Rock crushes Scissors");
+            Console.WriteLine("Scissors cuts Paper");
+            Console.WriteLine("Paper covers Rock");
+            Console.WriteLine("Rock crushes Lizard");
+            Console.WriteLine("Lizard poisons Spock");
+            Console.WriteLine("Spock smashes Scissors");
+            Console.WriteLine("Scissors decapitates Lizard");
+            Console.WriteLine("Lizard eats Paper");
+            Console.WriteLine("Paper disproves Spock");
+            Console.WriteLine("Spock vaporizes Rock");
             Console.WriteLine("Press enter to begin playing!");
             Console.ReadLine();
         }
@@ -67,8 +76,6 @@ namespace RPSLS
             string result;
             string player1Gesture;
             string player2Gesture;
-
-            bool player1Wins;
 
 
             player1Gesture = player1.ChooseGesture();
@@ -166,6 +173,24 @@ namespace RPSLS
             }
             return result;
 
+        }
+
+        public string CheckForWin (int player1Total, int player2Total) {
+            string finalScore;
+            if (player1Total == 3) {
+                finalScore = "Player 1 wins the match!!";
+                Console.ReadLine();
+            }
+            else if (player2Total == 3) {
+                finalScore =  "Player 2 wins the match!!";
+                Console.ReadLine();
+            }
+            else {
+                finalScore = "No winner yet! Keep playing!";
+                Console.ReadLine();
+                GetResult(player1,player2);
+            }
+            return finalScore;
         }
     }
 }

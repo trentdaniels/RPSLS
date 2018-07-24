@@ -4,7 +4,7 @@ namespace RPSLS
     public abstract class Player
     {
         // Members
-        public double total;
+        public int total;
 
         //Constructor
         public Player()
