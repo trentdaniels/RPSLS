@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{27DBCA15-CD97-4182-A92C-D27B4F1BB878}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RPSLS/Human.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RPSLS/Program.cs">
     <Files>
-      <File FileName="RPSLS/Program.cs" Line="11" Column="31" />
-      <File FileName="RPSLS/Game.cs" Line="44" Column="27" />
-      <File FileName="RPSLS/Player.cs" Line="16" Column="6" />
-      <File FileName="RPSLS/Human.cs" Line="9" Column="6" />
+      <File FileName="RPSLS/Program.cs" Line="10" Column="18" />
+      <File FileName="RPSLS/Game.cs" Line="16" Column="45" />
+      <File FileName="RPSLS/Player.cs" Line="16" Column="1" />
+      <File FileName="RPSLS/Human.cs" Line="14" Column="48" />
+      <File FileName="RPSLS/Computer.cs" Line="24" Column="94" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
@@ -13,5 +14,5 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.RPSLS PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.RPSLS PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

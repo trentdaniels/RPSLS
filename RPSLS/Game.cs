@@ -8,14 +8,12 @@ namespace RPSLS
         // Members
         Player player1;
         Player player2;
-        List<string> gestures;
 
         // Constructors
         public Game()
         {
             player1 = GetNewPlayer(player1);
             player2 = GetNewPlayer(player2);
-            gestures = new List<string>() { "rock","paper","scissors","lizard", "spock" };
         }
 
         // Methods
