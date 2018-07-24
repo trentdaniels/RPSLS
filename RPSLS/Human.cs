@@ -22,6 +22,9 @@ namespace RPSLS
                 Console.WriteLine("Invalid gesture. Please try again!");
                 ChooseGesture();
             }
+
+            Console.WriteLine("You chose {0}.", userGesture);
+            Console.ReadLine();
             return userGesture;
         }
     }
