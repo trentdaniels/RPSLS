@@ -65,6 +65,7 @@ namespace RPSLS
                 default:
                     Console.WriteLine("Whoops! Please choose 'human' or 'computer'.");
                     Console.ReadLine();
+                    GetNewPlayer(player);
                     break;
             }
             isPlayer1 = !isPlayer1;
@@ -74,21 +75,19 @@ namespace RPSLS
         }
         public string GetResult (Player player1, Player player2) {
             string result;
-            string player1Gesture;
-            string player2Gesture;
 
 
-            player1Gesture = player1.ChooseGesture();
-            player2Gesture = player2.ChooseGesture();
+            player1.choice = player1.ChooseGesture();
+            player2.choice = player2.ChooseGesture();
 
-            switch (player1Gesture) {
+            switch (player1.choice) {
                 case "rock":
-                    if (player2Gesture == "scissors" || player2Gesture == "lizard")
+                    if (player2.choice == "scissors" || player2.choice == "lizard")
                     {
                         result = "Player 1 wins!";
                         player1.total++;
                     }
-                    else if (player2Gesture == "paper" || player2Gesture == "Spock")
+                    else if (player2.choice == "paper" || player2.choice == "Spock")
                     {
                         result = "Player 2 wins!";
                         player2.total++;
@@ -100,12 +99,12 @@ namespace RPSLS
                     break;
 
                 case "paper":
-                    if (player2Gesture == "rock" || player2Gesture == "Spock")
+                    if (player2.choice == "rock" || player2.choice == "Spock")
                     {
                         result = "Player 1 wins!";
                         player1.total++;
                     }
-                    else if (player2Gesture == "scissors" || player2Gesture == "lizard")
+                    else if (player2.choice == "scissors" || player2.choice == "lizard")
                     {
                         result = "Player 2 wins!";
                         player2.total++;
@@ -117,12 +116,12 @@ namespace RPSLS
                     }
                     break;
                 case "scissors":
-                    if (player2Gesture == "lizard" || player2Gesture == "paper") 
+                    if (player2.choice == "lizard" || player2.choice == "paper") 
                     {
                         result = "Player 1 wins!";
                         player1.total++;
                     }
-                    else if (player2Gesture == "rock" || player2Gesture == "spock") 
+                    else if (player2.choice == "rock" || player2.choice == "spock") 
                     {
                         result = "Player 2 wins!";
                         player2.total++;
@@ -134,12 +133,12 @@ namespace RPSLS
                     }
                     break;
                 case "lizard":
-                    if (player2Gesture == "spock" || player2Gesture == "paper")
+                    if (player2.choice == "spock" || player2.choice == "paper")
                     {
                         result = "Player 1 wins!";
                         player1.total++;
                     }
-                    else if( player2Gesture == "rock" || player2Gesture == "scissors")
+                    else if( player2.choice == "rock" || player2.choice == "scissors")
                     {
                         result = "Player 2 wins!";
                         player2.total++;
@@ -151,12 +150,12 @@ namespace RPSLS
                     }
                     break;
                 case "spock":
-                    if (player2Gesture == "scissors" || player2Gesture == "rock")
+                    if (player2.choice == "scissors" || player2.choice == "rock")
                     {
                         result = "Player 1 wins!";
                         player1.total++;
                     }
-                    else if (player2Gesture == "lizard" || player2Gesture == "paper")
+                    else if (player2.choice == "lizard" || player2.choice == "paper")
                     {
                         result = "Player 2 wins!";
                         player2.total++;

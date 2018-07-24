@@ -22,7 +22,7 @@ namespace RPSLS
 
 
             gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
-            computerGesture = gestures[random.Next(0, 6)];
+            computerGesture = gestures[random.Next(0, 5)];
             Console.WriteLine("The computer chose {0} ", computerGesture);
             Console.ReadLine();
             return computerGesture;

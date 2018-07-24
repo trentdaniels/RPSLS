@@ -5,6 +5,7 @@ namespace RPSLS
     {
         // Members
         public int total;
+        public string choice;
 
         //Constructor
         public Player()
