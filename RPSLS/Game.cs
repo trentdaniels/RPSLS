@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace RPSLS
 {
     public class Game
@@ -6,17 +8,20 @@ namespace RPSLS
         // Members
         Player player1;
         Player player2;
+        List<string> gestures;
 
         // Constructors
         public Game()
         {
-            player1 = GetNewPlayer(player);
-            player2 = GetNewPlayer(player);
+            player1 = GetNewPlayer(player1);
+            player2 = GetNewPlayer(player2);
+            gestures = new List<string>() { "rock","paper","scissors","lizard", "spock" };
         }
 
         // Methods
         public Player GetNewPlayer(Player player) {
             string playerType;
+
 
             Console.WriteLine("What type of player is this? Please Choose 'human' or 'computer'.");
             playerType = Console.ReadLine();
@@ -37,6 +42,7 @@ namespace RPSLS
                     Console.ReadLine();
                     break;
             }
+            return player;
 
 
         }
