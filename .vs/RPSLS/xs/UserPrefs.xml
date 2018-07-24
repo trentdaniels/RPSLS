@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{27DBCA15-CD97-4182-A92C-D27B4F1BB878}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RPSLS/Player.cs">
+    <Files>
+      <File FileName="RPSLS/Program.cs" Line="11" Column="31" />
+      <File FileName="RPSLS/Game.cs" Line="19" Column="26" />
+      <File FileName="RPSLS/Player.cs" Line="7" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.RPSLS PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+</Properties>
