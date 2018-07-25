@@ -15,9 +15,7 @@ namespace RPSLS
         // Constructors
         public Game()
         {
-            DisplayWelcome();
-            player1 = GetNewPlayer(player1, true);
-            player2 = GetNewPlayer(player2 , false);
+            SetupGame();
             gestures = new List<string>() { "rock", "paper", "scissors", "spock", "lizard" };
             round = 1;
             RunGame(player1.total, player2.total);
@@ -25,6 +23,13 @@ namespace RPSLS
         }
 
         // Methods
+        public void SetupGame() 
+        {
+            DisplayWelcome();
+            player1 = GetNewPlayer(player1, true);
+            player2 = GetNewPlayer(player2, false);
+        }
+
         public void DisplayWelcome()
         {
             Console.WriteLine("Welcome to the classic game of Rock Paper Scissors Lizard Spock");
@@ -44,7 +49,8 @@ namespace RPSLS
                 DetermineWinner(player1, player2);
                 CheckForWin(player1.total, player2.total);
 
-                if (player1.total == 3 || player2.total == 3) {
+                if (player1.total == 3 || player2.total == 3) 
+                {
                     break;
                 }
             }
@@ -108,7 +114,7 @@ namespace RPSLS
 
             player1ChoiceIndex = gestures.IndexOf(player1.choice);
             player2ChoiceIndex = gestures.IndexOf(player2.choice);
-    
+
 
             totalChoiceIndex = (5 + player1ChoiceIndex - player2ChoiceIndex) % 5;
 
