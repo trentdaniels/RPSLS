@@ -9,6 +9,7 @@ namespace RPSLS
         Player player1;
         Player player2;
         List<string> gestures;
+        public int round;
 
 
         // Constructors
@@ -18,8 +19,9 @@ namespace RPSLS
             player1 = GetNewPlayer(player1, true);
             player2 = GetNewPlayer(player2 , false);
             gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
-
-            Console.WriteLine(GetResult(player1, player2));
+            round = 1;
+            GetResult(player1, player2);
+            DetermineWinner(player1, player2);
             Console.WriteLine(CheckForWin(player1.total, player2.total));
         }
 
@@ -37,7 +39,8 @@ namespace RPSLS
         }
 
 
-        public Player GetNewPlayer(Player player, bool isPlayer1) {
+        public Player GetNewPlayer(Player player, bool isPlayer1) 
+        {
             string playerType;
             string welcome;
 
@@ -48,7 +51,8 @@ namespace RPSLS
 
             playerType = Console.ReadLine().ToLower();
 
-            switch (playerType) {
+            switch (playerType) 
+            {
                 case "human":
                     player = new Human();
                     Console.WriteLine("Created new human player for this player");
@@ -70,34 +74,68 @@ namespace RPSLS
 
 
         }
-        public string GetResult (Player player1, Player player2) {
-            string result;
 
-
+        public void GetResult (Player player1, Player player2) 
+        {
+            Console.WriteLine("Round {0}:", round);
             player1.choice = player1.ChooseGesture(gestures, player1);
             player2.choice = player2.ChooseGesture(gestures, player2);
+            round++;
+        }
 
-            result = "string";
-            return result;
+        public void DetermineWinner (Player player1, Player player2) 
+        {
+            int totalChoiceIndex;
+            int player1ChoiceIndex;
+            int player2ChoiceIndex;
+
+            player1ChoiceIndex = Math.Abs(gestures.BinarySearch(player1.choice));
+            player2ChoiceIndex = Math.Abs(gestures.BinarySearch(player2.choice));
+    
+
+            totalChoiceIndex = (5 + player1ChoiceIndex - player2ChoiceIndex) % 5;
+
+            if (totalChoiceIndex == 0)
+            {
+                Console.WriteLine("It's a tie! Let's start the next round.");
+            }
+            else if (totalChoiceIndex % 2 == 0) 
+            {
+                Console.WriteLine("Player 1 has won the round!");
+                player1.IncreaseTotal();
+            }
+            else 
+            {
+                Console.WriteLine("Player 2 has won the round!");
+                player2.IncreaseTotal();
+            }
 
         }
 
-        public string CheckForWin (int player1Total, int player2Total) {
+        public string CheckForWin (int player1Total, int player2Total) 
+        {
             string finalScore;
-            if (player1Total == 3) {
-                finalScore = "Player 1 wins the match!!";
+            if (player1Total == 3) 
+            {
+                finalScore = "Player 1 wins the match with 3 points!!";
                 Console.ReadLine();
             }
-            else if (player2Total == 3) {
-                finalScore =  "Player 2 wins the match!!";
+            else if (player2Total == 3) 
+            {
+                finalScore =  "Player 2 wins the match with 3 points!!";
                 Console.ReadLine();
             }
-            else {
+            else 
+            {
                 finalScore = "No winner yet! Keep playing!";
                 Console.ReadLine();
+
                 GetResult(player1,player2);
+                DetermineWinner(player1,player2);
             }
             return finalScore;
         }
+
+
     }
 }

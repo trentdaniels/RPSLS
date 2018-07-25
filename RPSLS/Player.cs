@@ -19,9 +19,9 @@ namespace RPSLS
 
         //Methods
         public abstract string ChooseGesture(List<string> gestures, Player player);
-        public void IncreaseTotal(Player player)
+        public void IncreaseTotal()
         {
-            player.total++;
+            total++;
         }
 
     }
