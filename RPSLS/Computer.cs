@@ -7,13 +7,13 @@ namespace RPSLS
     {
         // Members
         private Random random;
-        private string type;
+        public string type;
 
         // Constructors
-        public Computer(string type)
+        public Computer()
         {
             random = new Random();
-            this.type = type;
+            type = "computer";
         }
 
         // Methods

@@ -4,12 +4,12 @@ namespace RPSLS
     public class Human : Player
     {
         // Members
-        string type;
+        public string type;
 
         // Constructors
-        public Human(string type)
+        public Human()
         {
-            this.type = type;
+            type = "human";
         }
 
         // Methods

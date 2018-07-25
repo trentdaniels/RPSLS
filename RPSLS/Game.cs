@@ -8,6 +8,7 @@ namespace RPSLS
         // Members
         Player player1;
         Player player2;
+        List<string> gestures;
 
 
         // Constructors
@@ -16,6 +17,7 @@ namespace RPSLS
             DisplayWelcome();
             player1 = GetNewPlayer(player1, true);
             player2 = GetNewPlayer(player2 , false);
+            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
 
             Console.WriteLine(GetResult(player1, player2));
             Console.WriteLine(CheckForWin(player1.total, player2.total));
@@ -55,12 +57,12 @@ namespace RPSLS
 
             switch (playerType) {
                 case "human":
-                    player = new Human("human");
+                    player = new Human();
                     Console.WriteLine("Created new human player for this player");
                     Console.ReadLine();
                     break;
                 case "computer":
-                    player = new Computer("computer");
+                    player = new Computer();
                     Console.WriteLine("Created new computer for this player");
                     Console.ReadLine();
                     break;
@@ -70,8 +72,6 @@ namespace RPSLS
                     GetNewPlayer(player, isPlayer1);
                     break;
             }
-            isPlayer1 = !isPlayer1;
-            welcome = "";
 
             return player;
 
