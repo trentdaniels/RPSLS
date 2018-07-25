@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace RPSLS
 {
     public abstract class Player
@@ -16,7 +18,7 @@ namespace RPSLS
         }
 
         //Methods
-        public abstract string ChooseGesture();
+        public abstract string ChooseGesture(List<string> gestures, Player player);
 
     }
 }

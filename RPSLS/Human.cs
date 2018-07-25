@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace RPSLS
 {
     public class Human : Player
@@ -13,16 +15,18 @@ namespace RPSLS
         }
 
         // Methods
-        public override string ChooseGesture () {
+        public override string ChooseGesture (List<string> gestures, Player player) {
             string userGesture;
 
-            Console.WriteLine("Which gesture would you like to use? Please choose from 'rock', 'paper' 'scissors' 'lizard', or 'spock'");
+            Console.WriteLine("Please choose from the following:\n[1] Rock\n[2] Paper\n[3] Scissors\n[4] Lizard\n[5] Spock");
             userGesture = Console.ReadLine().ToLower();
 
-            if (userGesture != "rock" && userGesture != "paper" && userGesture != "scissors" && userGesture != "lizard" && userGesture != "spock")
-            {
-                Console.WriteLine("Invalid gesture. Please try again!");
-                ChooseGesture();
+            foreach (string gesture in gestures) {
+                if (userGesture != gesture) {
+                    Console.WriteLine("Invalid option");
+                    ChooseGesture(gestures, player);
+                }
+                player.choice = userGesture;
             }
 
             Console.WriteLine("You chose {0}.", userGesture);
