@@ -20,21 +20,31 @@ namespace RPSLS
             player2 = GetNewPlayer(player2 , false);
             gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
             round = 1;
-            GetResult(player1, player2);
-            DetermineWinner(player1, player2);
-            Console.WriteLine(CheckForWin(player1.total, player2.total));
+            RunGame(player1.total, player2.total);
+
         }
 
         // Methods
         public void DisplayWelcome()
         {
             Console.WriteLine("Welcome to the classic game of Rock Paper Scissors Lizard Spock");
-            Console.WriteLine("The rules are simple. You choose a result against your opponent and a result occurs.");
             Console.ReadLine();
             Console.WriteLine("Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors" +
                               "\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock");
             Console.ReadLine();
             Console.WriteLine("Press enter to begin playing!");
+            Console.ReadLine();
+        }
+
+        public void RunGame (int player1Total, int player2Total) 
+        {
+            while (player1Total < 3 && player2Total < 3) 
+            {
+                GetResult(player1, player2);
+                DetermineWinner(player1, player2);
+                Console.WriteLine(CheckForWin(player1.total, player2.total));
+            }
+            Console.WriteLine("Match Over!");
             Console.ReadLine();
         }
 
@@ -55,12 +65,14 @@ namespace RPSLS
             {
                 case "human":
                     player = new Human();
-                    Console.WriteLine("Created new human player for this player");
+                    player.name = isPlayer1 ? "Player 1" : "Player 2";
+                    Console.WriteLine("Created new human player for " + player.name + ".");
                     Console.ReadLine();
                     break;
                 case "computer":
                     player = new Computer();
-                    Console.WriteLine("Created new computer for this player");
+                    player.name = isPlayer1 ? "Player 1" : "Player 2";
+                    Console.WriteLine("Created new computer for " + player.name + ".");
                     Console.ReadLine();
                     break;
                 default:
@@ -129,9 +141,6 @@ namespace RPSLS
             {
                 finalScore = "No winner yet! Keep playing!";
                 Console.ReadLine();
-
-                GetResult(player1,player2);
-                DetermineWinner(player1,player2);
             }
             return finalScore;
         }

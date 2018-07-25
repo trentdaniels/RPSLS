@@ -26,7 +26,7 @@ namespace RPSLS
 
             if (isValidGesture) 
             {
-                Console.WriteLine("You chose {0}.", userGesture);
+                Console.WriteLine(player.name + " chose {0}.", userGesture);
                 Console.ReadLine();
 
             }

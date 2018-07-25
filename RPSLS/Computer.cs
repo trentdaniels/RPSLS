@@ -22,7 +22,7 @@ namespace RPSLS
             string computerGesture;
 
             computerGesture = gestures[random.Next(0, 5)];
-            Console.WriteLine("The computer chose {0} ", computerGesture);
+            Console.WriteLine(player.name + " chose {0} ", computerGesture);
             Console.ReadLine();
             return computerGesture;
             

@@ -8,6 +8,7 @@ namespace RPSLS
         // Members
         public int total;
         public string choice;
+        public string name;
 
 
         //Constructor
