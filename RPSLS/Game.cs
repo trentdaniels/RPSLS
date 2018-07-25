@@ -29,16 +29,9 @@ namespace RPSLS
             Console.WriteLine("Welcome to the classic game of Rock Paper Scissors Lizard Spock");
             Console.WriteLine("The rules are simple. You choose a result against your opponent and a result occurs.");
             Console.ReadLine();
-            Console.WriteLine("Rock crushes Scissors");
-            Console.WriteLine("Scissors cuts Paper");
-            Console.WriteLine("Paper covers Rock");
-            Console.WriteLine("Rock crushes Lizard");
-            Console.WriteLine("Lizard poisons Spock");
-            Console.WriteLine("Spock smashes Scissors");
-            Console.WriteLine("Scissors decapitates Lizard");
-            Console.WriteLine("Lizard eats Paper");
-            Console.WriteLine("Paper disproves Spock");
-            Console.WriteLine("Spock vaporizes Rock");
+            Console.WriteLine("Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors" +
+                              "\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock");
+            Console.ReadLine();
             Console.WriteLine("Press enter to begin playing!");
             Console.ReadLine();
         }
@@ -81,10 +74,10 @@ namespace RPSLS
             string result;
 
 
-            player1.choice = player1.ChooseGesture();
-            player2.choice = player2.ChooseGesture();
+            player1.choice = player1.ChooseGesture(gestures, player1);
+            player2.choice = player2.ChooseGesture(gestures, player2);
 
-            result = "result";
+            result = "string";
             return result;
 
         }

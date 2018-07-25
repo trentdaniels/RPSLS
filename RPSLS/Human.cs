@@ -17,21 +17,26 @@ namespace RPSLS
         // Methods
         public override string ChooseGesture (List<string> gestures, Player player) {
             string userGesture;
+            bool isValidGesture;
 
-            Console.WriteLine("Please choose from the following:\n[1] Rock\n[2] Paper\n[3] Scissors\n[4] Lizard\n[5] Spock");
+            Console.WriteLine("Please choose from the following:\nRock\nPaper\nScissors\nLizard\nSpock");
             userGesture = Console.ReadLine().ToLower();
+            isValidGesture = gestures.Contains(userGesture);
 
-            foreach (string gesture in gestures) {
-                if (userGesture != gesture) {
-                    Console.WriteLine("Invalid option");
-                    ChooseGesture(gestures, player);
-                }
-                player.choice = userGesture;
+            if (isValidGesture) {
+                Console.WriteLine("You chose {0}.", userGesture);
+                Console.ReadLine();
+
             }
+            else {
+                Console.WriteLine("Invalid input. Please try again");
+                Console.ReadLine();
+                ChooseGesture(gestures, player);
 
-            Console.WriteLine("You chose {0}.", userGesture);
-            Console.ReadLine();
+            }
             return userGesture;
+
+
         }
     }
 

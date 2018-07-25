@@ -17,13 +17,10 @@ namespace RPSLS
         }
 
         // Methods
-        public override string ChooseGesture()
+        public override string ChooseGesture(List<string>gestures, Player player)
         {
             string computerGesture;
-            List<string> gestures;
 
-
-            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
             computerGesture = gestures[random.Next(0, 5)];
             Console.WriteLine("The computer chose {0} ", computerGesture);
             Console.ReadLine();
