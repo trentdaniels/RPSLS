@@ -20,7 +20,7 @@ namespace RPSLS
             string userGesture;
             bool isValidGesture;
 
-            Console.WriteLine("Please choose from the following:\nRock\nPaper\nScissors\nLizard\nSpock");
+            Console.WriteLine("Please choose from the following:\nRock\nPaper\nScissors\nSpock\nLizard");
             userGesture = Console.ReadLine().ToLower();
             isValidGesture = gestures.Contains(userGesture);
 
