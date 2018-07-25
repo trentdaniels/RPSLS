@@ -8,15 +8,15 @@ namespace RPSLS
         // Members
         Player player1;
         Player player2;
-        bool isPlayer1;
+
 
         // Constructors
         public Game()
         {
             DisplayWelcome();
-            player1 = GetNewPlayer(player1);
-            player2 = GetNewPlayer(player2);
-            isPlayer1 = true;
+            player1 = GetNewPlayer(player1, true);
+            player2 = GetNewPlayer(player2 , false);
+
             Console.WriteLine(GetResult(player1, player2));
             Console.WriteLine(CheckForWin(player1.total, player2.total));
         }
@@ -42,13 +42,15 @@ namespace RPSLS
         }
 
 
-        public Player GetNewPlayer(Player player) {
+        public Player GetNewPlayer(Player player, bool isPlayer1) {
             string playerType;
             string welcome;
 
-            welcome = isPlayer1 ? "What type of player is Player 2? Please Choose 'human' or 'computer'.": 
-                                         "What type of player is Player 1? Please Choose 'human' or 'computer'.";
+
+            welcome = isPlayer1 ? "What type of player is Player 1? Please Choose 'human' or 'computer'." : "What type of player is Player 2? Please Choose 'human' or 'computer'.";
             Console.WriteLine(welcome);
+
+
             playerType = Console.ReadLine().ToLower();
 
             switch (playerType) {
@@ -65,10 +67,12 @@ namespace RPSLS
                 default:
                     Console.WriteLine("Whoops! Please choose 'human' or 'computer'. Press enter to try again.");
                     Console.ReadLine();
-                    GetNewPlayer(player);
+                    GetNewPlayer(player, isPlayer1);
                     break;
             }
             isPlayer1 = !isPlayer1;
+            welcome = "";
+
             return player;
 
 
