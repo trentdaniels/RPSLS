@@ -49,21 +49,21 @@ namespace RPSLS
             welcome = isPlayer1 ? "What type of player is Player 2? Please Choose 'human' or 'computer'.": 
                                          "What type of player is Player 1? Please Choose 'human' or 'computer'.";
             Console.WriteLine(welcome);
-            playerType = Console.ReadLine();
+            playerType = Console.ReadLine().ToLower();
 
             switch (playerType) {
                 case "human":
-                    player = new Human();
-                    Console.WriteLine("Created new human player for player 1.");
+                    player = new Human("human");
+                    Console.WriteLine("Created new human player for this player");
                     Console.ReadLine();
                     break;
                 case "computer":
-                    player = new Computer();
-                    Console.WriteLine("Created new computer player for player 2");
+                    player = new Computer("computer");
+                    Console.WriteLine("Created new computer for this player");
                     Console.ReadLine();
                     break;
                 default:
-                    Console.WriteLine("Whoops! Please choose 'human' or 'computer'.");
+                    Console.WriteLine("Whoops! Please choose 'human' or 'computer'. Press enter to try again.");
                     Console.ReadLine();
                     GetNewPlayer(player);
                     break;
@@ -80,96 +80,7 @@ namespace RPSLS
             player1.choice = player1.ChooseGesture();
             player2.choice = player2.ChooseGesture();
 
-            switch (player1.choice) {
-                case "rock":
-                    if (player2.choice == "scissors" || player2.choice == "lizard")
-                    {
-                        result = "Player 1 wins!";
-                        player1.total++;
-                    }
-                    else if (player2.choice == "paper" || player2.choice == "Spock")
-                    {
-                        result = "Player 2 wins!";
-                        player2.total++;
-                    }
-                    else 
-                    {
-                        result = "It's a tie!";
-                    }
-                    break;
-
-                case "paper":
-                    if (player2.choice == "rock" || player2.choice == "Spock")
-                    {
-                        result = "Player 1 wins!";
-                        player1.total++;
-                    }
-                    else if (player2.choice == "scissors" || player2.choice == "lizard")
-                    {
-                        result = "Player 2 wins!";
-                        player2.total++;
-                    }
-                    else
-                    {
-                        result = "It's a tie!";
-                        GetResult(player1, player2);
-                    }
-                    break;
-                case "scissors":
-                    if (player2.choice == "lizard" || player2.choice == "paper") 
-                    {
-                        result = "Player 1 wins!";
-                        player1.total++;
-                    }
-                    else if (player2.choice == "rock" || player2.choice == "spock") 
-                    {
-                        result = "Player 2 wins!";
-                        player2.total++;
-                    }
-                    else
-                    {
-                        result = "It's a tie!";
-                        GetResult(player1, player2);
-                    }
-                    break;
-                case "lizard":
-                    if (player2.choice == "spock" || player2.choice == "paper")
-                    {
-                        result = "Player 1 wins!";
-                        player1.total++;
-                    }
-                    else if( player2.choice == "rock" || player2.choice == "scissors")
-                    {
-                        result = "Player 2 wins!";
-                        player2.total++;
-                    }
-                    else
-                    {
-                        result = "It's a tie!";
-                        GetResult(player1, player2);
-                    }
-                    break;
-                case "spock":
-                    if (player2.choice == "scissors" || player2.choice == "rock")
-                    {
-                        result = "Player 1 wins!";
-                        player1.total++;
-                    }
-                    else if (player2.choice == "lizard" || player2.choice == "paper")
-                    {
-                        result = "Player 2 wins!";
-                        player2.total++;
-                    }
-                    else
-                    {
-                        result = "It's a tie!";
-                        GetResult(player1, player2);
-                    }
-                    break;
-                default:
-                    result = "No winner!";
-                    break;
-            }
+            result = "result";
             return result;
 
         }

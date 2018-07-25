@@ -7,9 +7,11 @@ namespace RPSLS
         public int total;
         public string choice;
 
+
         //Constructor
         public Player()
         {
+            
             total = 0;
         }
 
