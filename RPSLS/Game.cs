@@ -18,7 +18,7 @@ namespace RPSLS
             DisplayWelcome();
             player1 = GetNewPlayer(player1, true);
             player2 = GetNewPlayer(player2 , false);
-            gestures = new List<string>() { "rock", "paper", "scissors", "lizard", "spock" };
+            gestures = new List<string>() { "rock", "paper", "scissors", "spock", "lizard" };
             round = 1;
             RunGame(player1.total, player2.total);
 
@@ -42,8 +42,13 @@ namespace RPSLS
             {
                 GetResult(player1, player2);
                 DetermineWinner(player1, player2);
-                Console.WriteLine(CheckForWin(player1.total, player2.total));
+                CheckForWin(player1.total, player2.total);
+
+                if (player1.total == 3 || player2.total == 3) {
+                    break;
+                }
             }
+
             Console.WriteLine("Match Over!");
             Console.ReadLine();
         }
@@ -101,8 +106,8 @@ namespace RPSLS
             int player1ChoiceIndex;
             int player2ChoiceIndex;
 
-            player1ChoiceIndex = Math.Abs(gestures.BinarySearch(player1.choice));
-            player2ChoiceIndex = Math.Abs(gestures.BinarySearch(player2.choice));
+            player1ChoiceIndex = gestures.IndexOf(player1.choice);
+            player2ChoiceIndex = gestures.IndexOf(player2.choice);
     
 
             totalChoiceIndex = (5 + player1ChoiceIndex - player2ChoiceIndex) % 5;
@@ -113,18 +118,18 @@ namespace RPSLS
             }
             else if (totalChoiceIndex % 2 == 0) 
             {
-                Console.WriteLine("Player 1 has won the round!");
-                player1.IncreaseTotal();
+                Console.WriteLine("Player 2 has won the round!");
+                player2.IncreaseTotal();
             }
             else 
             {
-                Console.WriteLine("Player 2 has won the round!");
-                player2.IncreaseTotal();
+                Console.WriteLine("Player 1 has won the round!");
+                player1.IncreaseTotal();
             }
 
         }
 
-        public string CheckForWin (int player1Total, int player2Total) 
+        public void CheckForWin (int player1Total, int player2Total) 
         {
             string finalScore;
             if (player1Total == 3) 
@@ -142,7 +147,7 @@ namespace RPSLS
                 finalScore = "No winner yet! Keep playing!";
                 Console.ReadLine();
             }
-            return finalScore;
+            Console.WriteLine(finalScore);
         }
 
 
