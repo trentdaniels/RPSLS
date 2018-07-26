@@ -116,7 +116,7 @@ namespace RPSLS
             player2ChoiceIndex = gestures.IndexOf(player2.choice);
 
 
-            totalChoiceIndex = (5 + player1ChoiceIndex - player2ChoiceIndex) % 5;
+            totalChoiceIndex = (gestures.Count + player1ChoiceIndex - player2ChoiceIndex) % gestures.Count;
 
             if (totalChoiceIndex == 0)
             {

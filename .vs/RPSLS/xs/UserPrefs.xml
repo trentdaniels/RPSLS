@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{27DBCA15-CD97-4182-A92C-D27B4F1BB878}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RPSLS/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RPSLS/Computer.cs">
     <Files>
       <File FileName="RPSLS/Program.cs" Line="10" Column="18" />
-      <File FileName="RPSLS/Game.cs" Line="16" Column="45" />
-      <File FileName="RPSLS/Player.cs" Line="16" Column="1" />
-      <File FileName="RPSLS/Human.cs" Line="14" Column="48" />
-      <File FileName="RPSLS/Computer.cs" Line="24" Column="94" />
+      <File FileName="RPSLS/Game.cs" Line="30" Column="52" />
+      <File FileName="RPSLS/Player.cs" Line="19" Column="1" />
+      <File FileName="RPSLS/Human.cs" Line="15" Column="1" />
+      <File FileName="RPSLS/Computer.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
